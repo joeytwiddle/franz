@@ -35,6 +35,9 @@ export default function init(stores) {
   reaction(
     () => stores.user.isLoggedIn && stores.services.allServicesRequest.wasExecuted && stores.features.features.needToWaitToProceed && !stores.user.data.isPremium,
     (isEnabled) => {
+      // Added by Joey:
+      // eslint-disable-next-line no-param-reassign
+      isEnabled = false;
       if (isEnabled) {
         debug('Enabling `delayApp` feature');
 
